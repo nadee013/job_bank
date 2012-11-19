@@ -23,9 +23,9 @@ class Vacancy extends CI_Controller {
 	public function get_schedule_data() {
 
 		$this->load->view("header");
-		$this->load->view("logout");
 
 		$this->load->view("vacancy/company/insert/schedule_data");
+		// mokak hari
 		$this->load->view("footer");
 	
 	}
