@@ -6,6 +6,12 @@
 
 :Task
 
+ ☐ add the active vacancies status as de-active(add a button)
+ ☐ when de-activating a vacancy send a mail to the selected candidates as the interview has been closed
+ ☐ later accpetences will not be added to the candidate list
+
+ ☐ add an alert box on clicking the invite button (http://localhost/job_bank_nw/index.php/vacancy/do_search_vacancy/1) informing that email will be directed for the checked candidates
+
  ☐ add the remark button of each and every page
 
  ☐ cv status button eka hadanna.http://localhost/job_bank/index.php/candidateView/get_mainProfile
