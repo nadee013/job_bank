@@ -1,0 +1,57 @@
+
+
+.div_main_header {
+
+  height : 8%;
+  color : #FFFFFF;
+  padding : 3%;
+  font-size : 100px;
+  background-color : #CC66CC;
+  margin : 0px;
+  
+}
+
+.div_menu {
+
+  position : relative;
+  width : 100%;
+
+}
+
+.div__sub_menu {
+
+  color : #FFFFFF;
+  width : 150px;
+  background-color : #660033;
+  align : center;
+  padding : 8px;
+  font-size : 20px;
+  float : left;
+  margin-right : 5px;
+
+}
+
+.div_label_list {
+
+  width : 100%;
+  float :left;
+
+}
+
+.div_label_list input,
+.div_label_list select {
+
+  width:200px;
+  font-size: 16px;
+  padding : 4px;
+ 
+}
+
+.label_reg {
+
+  font-size: 20px;
+  width :200px;
+  display :block;
+  float :left; 
+}
+

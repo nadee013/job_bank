@@ -1,0 +1,45 @@
+
+:Active
+
+
+ ☐ district eke all selected ekak hadanna oona.
+
+:Task
+
+ ☐ add the active vacancies status as de-active(add a button)
+ ☐ when de-activating a vacancy send a mail to the selected candidates as the interview has been closed
+ ☐ later accpetences will not be added to the candidate list
+
+ ☐ add an alert box on clicking the invite button (http://localhost/job_bank_nw/index.php/vacancy/do_search_vacancy/1) informing that email will be directed for the checked candidates
+
+ ☐ add the remark button of each and every page
+
+ ☐ cv status button eka hadanna.http://localhost/job_bank/index.php/candidateView/get_mainProfile
+
+
+ ☐ subjects sort wenna hadanna stream ekata anuwa.
+
+ ☐ http://localhost/job_bank/index.php/candidateView/index
+ meke samahara data null wena welawedi ewa null widihata pennanna oona
+ 
+
+ :Done
+
+ ✔ validation  waladi, db eken ena ewa validate karanna oona. @done (12-10-23 14:39)
+ eg: http://localhost/job_bank/index.php/common/do_insertUser
+ adding a email add/nic that has already in db
+ 
+ ✔ search page ekata kalin invite karala tiyana candidatesla ena eka nawattanna oona. @done (12-10-23 14:39)
+
+ ✔ http://localhost/job_bank/index.php/vacancy/do_search_vacancy/2 @done (12-10-23 14:39)
+ 2parak add wena eka nawattanna oona
+
+ ✔ http://localhost/job_bank/index.php/candidateView/view_vacancy_details/1 @done (12-10-23 14:32)
+ errror in time display
+
+ ✔ photo eka edit karanna tanak hadanna. candidate and company both @done (12-10-29 22:29)
+ 
+ ✔ validation msgs ena ekata div ekakui color ekakui daaanna. @done (12-10-29 22:58)
+
+ ✔ interview ekata dala tyana date ekai all time ekai  pennanna hadanna. @done (12-10-30 11:53)
+ http://localhost/job_bank/index.php/candidateView/view_vacancy_details/2

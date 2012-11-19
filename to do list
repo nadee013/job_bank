@@ -1,0 +1,24 @@
+1)
+add the referee details in basic information
+
+referees should get an email on request for acknowledgement
+
+email detail on acknowledgement should get updated on profile
+
+
+2)
+
+when viewing profiles, candidate profile should be updated with a notification
+
+3) 
+In scheduling interviews, all the selected candidates should get an notification
+
+Company should be able to edit the email body as per their wish
+
+
+2012/8/19
+
+1)
+when adding mo candidates, checked candidates names should be passed to the main candidate view page.
+
+2)

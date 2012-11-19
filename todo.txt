@@ -1,0 +1,84 @@
+*************candidatge compnay ekata pena profile eka hadanna oona.
+http://localhost/job_bank/index.php/candidateView/view_profile_to_company/102
+
+
+
+************http://localhost/job_bank/index.php/vacancy/get_main_vacancy_page_null
+mekata null page eke definition ekak liyanna
+page eka null weleta "edit" and download CV's button 2ma ain karanna.
+
+
+********download cv's button eke all download kiyana eka wenas karanna.
+
+************new job ekak add karaddi,http://localhost/job_bank/index.php/vacancy/get_vacancy_search/
+eke vacancy id eka pass karana eka hadanna.
+
+**************http://localhost/job_bank/index.php/vacancy/do_search_vacancy
+meke "position" eka not defined ena eke hadanna.
+
+
+************http://localhost/job_bank/index.php/vacancy/vacancy_data_load/28
+meka me widihata hadanna. 
+Libraries\Documents\bitmap.png
+
+**********change the candidate profile view with relevance to the company profile view
+
+*******candidateta accept reject karanna ui ekak hadanna.
+
+********candidateta position details view karanna ui ekak hadanna.
+
+***********create a profile of a company to be viewed by the candidate.
+http://localhost/job_bank/index.php/candidateView/view_vacancy_details/13
+
+///------- not needed---////////add a back button.http://localhost/job_bank/index.php/company_vw_edt/view_profile_for_company/12
+
+******candidate accept/reject kalama db eka update wenna oona.
+
+******show the diffrence after accpet and reject.http://localhost/job_bank/index.php/candidateView/get_mainProfile
+reject kala eka ain wenna oona.
+
+*********http://localhost/job_bank/index.php/candidateView/view_vacancy_details/13
+time ekai date ekai pennaddi eka allocate wela tinne oona candidateta.
+invite ekedi inna piliwelata time slots allocate karannat oona.
+
+////----not needed----///company ekata profile view ekak hadanna. dan tinne edit ekak view karaddi.
+http://localhost/job_bank/index.php/company_vw_edt/view_profile
+
+
+
+
+**************http://localhost/job_bank/index.php/candidateView/index
+profile tab eka naa.
+meka wenne essellama candidate register wela profile eka hadana wele. (1st login)
+
+
+
+http://localhost/job_bank/index.php/candidateView/get_mainProfile
+action eka catch karala color eka change karanna oona.
+
+
+*******http://localhost/job_bank/index.php/vacancy/vacancy_data_load/6
+meke action eka null weddi search page ekatama redirect wenawa. eka wenama "no rejected candidates" widihata pennanna hadanna.
+
+add the remark button of each and every page
+
+cv status button eka hadanna.http://localhost/job_bank/index.php/candidateView/get_mainProfile
+
+
+validation waladi, db eken ena ewa validate karanna oona.
+eg: http://localhost/job_bank/index.php/common/do_insertUser
+adding a email add/nic that has already in db
+
+photo eka edit karanna tanak hadanna. candidate and company both
+
+
+search page ekata kalin invite karala tiyana candidatesla ena eka nawattanna oona.
+
+http://localhost/job_bank/index.php/candidateView/index
+meke samahara data null wena welawedi ewa null widihata pennanna oona
+
+http://localhost/job_bank/index.php/candidateView/view_vacancy_details/1
+errror in time display
+
+http://localhost/job_bank/index.php/vacancy/do_search_vacancy/2
+2parak add wena eka nawattanna oona
