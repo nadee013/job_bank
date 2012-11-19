@@ -78,6 +78,15 @@
 	<h2>Qualifications</h2>
 		<br/>
 		<div class="control-group">
+		    <label class="control-label" for="inputPassword">User Type</label>
+		    <div class="controls">
+				<select name="type" >
+					<option value = "candidate">Candidate</option>
+					<option value = "employer">Employer</option>
+				</select>
+		    </div>
+	  	</div>
+		<div class="control-group">
 			<label class="control-label">Gender </label>
 			<div class="controls">
 				<input type="radio" name="gender" value="male" style="margin-right:20px; margin-left:20px"/>Male
@@ -87,35 +96,36 @@
 		</div>
 		<div class="control-group">
 			<label class="control-label">Age Group</label>
+				<label style="margin-right:10px" class="control-label">From</label>
 				<div class="controls"> 
-					<label style="margin-right:10px">From</label>
-						<select name="age1" class="controls">
-							<option>Select Age</option>
-							<?php for($i=18; $i<=85; $i++) { ?>
-								<option><?php echo $i; ?></option>
-							<?php } ?>
-						</select>
-					<label style="margin-right:10px">To</label> 
-					<select name="age2" class="controls">
+					<select name="age1">
 						<option>Select Age</option>
 						<?php for($i=18; $i<=85; $i++) { ?>
-							<option><?php echo $i; ?> </option> 
+							<option><?php echo $i; ?></option>
 						<?php } ?>
 					</select>
+				</div>
+			<label style="margin-right:10px" class="control-label">To</label> 
+			<select name="age2">
+					<option>Select Age</option>
+					<?php for($i=18; $i<=85; $i++) { ?>
+						<option><?php echo $i; ?> </option> 
+					<?php } ?>
+				</select>
 			</div>
 		</div>
+		<br/>
 		<div class="control-group">
 			<label class="control-label">Preffered District</label>
-			<div class="controls">
-				<select name="location">
+			<select name="location" id="data_input">
 					<option>Any Location</option>
 					<option>Colombo</option>
 					<option>Gampaha</option>
 					<option>Galle</option>
 				</select>
-			</div>
 		</div>
-	
+		<br/>
+		<br/>
 		<br/>
 	
 

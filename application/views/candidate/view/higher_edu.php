@@ -17,5 +17,5 @@
 		<br/>
 		<br/>
 		<?php } ?>
-	<input type= "button" class="btn btn-info" value= "Edit" onclick='location.href="<?php echo site_url("candidateEdit/view_higher_edu"); ?>"'/>
+	<input type= "button" value= "Edit" onclick='location.href="<?php echo site_url("candidateEdit/view_higher_edu"); ?>"'/>
 </div>

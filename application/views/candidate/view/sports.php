@@ -15,5 +15,5 @@
 			<b>Year  : </b><?php echo $sp["year"]; ?>
 		</div>	
 	
-		<input type="button" class= "btn btn-info" onclick='location.href="<?php echo site_url("candidateEdit/view_sports"); ?>"' value= "Edit"/>
+		<input type="button" onclick='location.href="<?php echo site_url("candidateEdit/view_sports"); ?>"' value= "Edit"/>
 	<?php } ?>

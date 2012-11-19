@@ -23,13 +23,9 @@ class Vacancy_Model extends CI_Model {
 	}
 
 
-	public function get_vacancies($cmpny_id, $action) {
+	public function get_vacancies($cmpny_id) {
 		
-		$sql = "SELECT * FROM vacancy WHERE cmpny_id = $cmpny_id ";
-		if($action) {
-			$sql .= "AND action = '$action'";
-
-		}
+		$sql = "SELECT vacancy_id, position FROM vacancy WHERE cmpny_id = $cmpny_id";
 		return $this->db->query($sql)->result_array();
 		
 	}

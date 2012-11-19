@@ -3,18 +3,12 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 22, 2012 at 05:53 PM
--- Server version: 5.5.24-log
--- PHP Version: 5.3.13
+-- Generation Time: Nov 16, 2012 at 11:14 AM
+-- Server version: 5.5.25
+-- PHP Version: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `job_bank`
@@ -26,7 +20,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `al`
 --
 
-CREATE TABLE IF NOT EXISTS `al` (
+CREATE TABLE `al` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `al_index` varchar(7) NOT NULL,
@@ -39,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `al` (
   `remark` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `al`
@@ -51,7 +45,8 @@ INSERT INTO `al` (`id`, `user_id`, `al_index`, `school`, `year`, `medium`, `stre
 (3, 208, '1452558', 'Sri Dharmaloka Central College', 2007, 'Sinhala', 'Science', 'Chemistry', 'B', 0),
 (4, 209, '21525', 'Sri Dharmaloka Central College', 2006, 'Sinhala', 'Science', 'Physics', 'C', 0),
 (5, 209, '21525', 'Sri Dharmaloka Central College', 2006, 'Sinhala', 'Science', 'Chemistry', 'A', 0),
-(6, 210, '', '', 0000, 'Select Medium', 'Select Stream', 'Select Subject', 'A', 0);
+(6, 210, '', '', 0000, 'Select Medium', 'Select Stream', 'Select Subject', 'A', 0),
+(7, 211, '', '', 0000, 'Select Medium', 'Select Stream', 'Select Subject', 'A', 0);
 
 -- --------------------------------------------------------
 
@@ -59,7 +54,7 @@ INSERT INTO `al` (`id`, `user_id`, `al_index`, `school`, `year`, `medium`, `stre
 -- Table structure for table `candidates_for_vacancy`
 --
 
-CREATE TABLE IF NOT EXISTS `candidates_for_vacancy` (
+CREATE TABLE `candidates_for_vacancy` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `vacancy_id` int(11) NOT NULL,
   `cmpny_id` int(11) NOT NULL,
@@ -87,7 +82,7 @@ INSERT INTO `candidates_for_vacancy` (`id`, `vacancy_id`, `cmpny_id`, `candidate
 -- Table structure for table `candidate_basicinfo`
 --
 
-CREATE TABLE IF NOT EXISTS `candidate_basicinfo` (
+CREATE TABLE `candidate_basicinfo` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `pic` varchar(200) NOT NULL,
@@ -104,18 +99,20 @@ CREATE TABLE IF NOT EXISTS `candidate_basicinfo` (
   `tp_mobile` varchar(10) NOT NULL,
   `nic_no` varchar(10) NOT NULL,
   `cv` varchar(200) NOT NULL,
+  `searchable` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `nic_no` (`nic_no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=211 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=212 ;
 
 --
 -- Dumping data for table `candidate_basicinfo`
 --
 
-INSERT INTO `candidate_basicinfo` (`user_id`, `title`, `pic`, `f_name`, `l_name`, `dob`, `gender`, `civil_status`, `address`, `district`, `country`, `nationality`, `tp_hm`, `tp_mobile`, `nic_no`, `cv`) VALUES
-(208, 'Miss', '', 'Nadee', 'Anuththara', 577756800, 'female', 'single', '246,Wedamulla,Kelaniya', 'Gampaha', 'Sri Lanka', 'Sri Lankan', '0771245745', '0112451241', '886414235V', ''),
-(209, 'Miss', 'uploads/c98c937437d1576a5e7cb3d2fed76e31.jpg', 'Chami', 'Uththara', 508377600, 'female', 'single', '246,Wedamulla,Kelaniya', 'Gampaha', 'Sri Lanka', 'Sri Lankan', '0715622512', '0112454521', '154256123v', ''),
-(210, 'Mr.', '', 'Roshan', 'Malcolm', 318211200, 'male', 'single', '109,Suriyapaluwa,Kadawatha', 'Colombo', 'Sri Lanka', 'Sri Lankan', '0774522155', '0112929256', '124552122V', '');
+INSERT INTO `candidate_basicinfo` (`user_id`, `title`, `pic`, `f_name`, `l_name`, `dob`, `gender`, `civil_status`, `address`, `district`, `country`, `nationality`, `tp_hm`, `tp_mobile`, `nic_no`, `cv`, `searchable`) VALUES
+(208, 'Miss', '', 'Nadee', 'Anuththara', 577756800, 'female', 'single', '246,Wedamulla,Kelaniya', 'Gampaha', 'Sri Lanka', 'Sri Lankan', '0771245745', '0112451241', '886414235V', '', 1),
+(209, 'Miss', 'uploads/c98c937437d1576a5e7cb3d2fed76e31.jpg', 'Chami', 'Uththara', 508377600, 'female', 'single', '246,Wedamulla,Kelaniya', 'Gampaha', 'Sri Lanka', 'Sri Lankan', '0715622512', '0112454521', '154256123v', '', 1),
+(210, 'Mr.', '', 'Roshan', 'Malcolm', 318211200, 'male', 'single', '109,Suriyapaluwa,Kadawatha', 'Colombo', 'Sri Lanka', 'Sri Lankan', '0774522155', '0112929256', '124552122V', '', 1),
+(211, 'Mr.', 'uploads/profile_pic.jpg', 'Arunoda', 'Susiripala', 592959600, 'male', 'single', ', , ', 'Select District', 'Sri Lanka', 'Sri Lankan', 'mobile', 'home', '88290083v', '', 1);
 
 -- --------------------------------------------------------
 
@@ -123,13 +120,13 @@ INSERT INTO `candidate_basicinfo` (`user_id`, `title`, `pic`, `f_name`, `l_name`
 -- Table structure for table `candidate_user`
 --
 
-CREATE TABLE IF NOT EXISTS `candidate_user` (
+CREATE TABLE `candidate_user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL,
   `password` varchar(10) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=211 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=212 ;
 
 --
 -- Dumping data for table `candidate_user`
@@ -138,7 +135,8 @@ CREATE TABLE IF NOT EXISTS `candidate_user` (
 INSERT INTO `candidate_user` (`user_id`, `email`, `password`) VALUES
 (208, 'nadee@gmail.com', 'n'),
 (209, 'chami@gmail.com', 'c'),
-(210, 'roshan@gmail.com', 'r');
+(210, 'roshan@gmail.com', 'r'),
+(211, 'arunoda@gmail.com', 'a');
 
 -- --------------------------------------------------------
 
@@ -146,7 +144,7 @@ INSERT INTO `candidate_user` (`user_id`, `email`, `password`) VALUES
 -- Table structure for table `company`
 --
 
-CREATE TABLE IF NOT EXISTS `company` (
+CREATE TABLE `company` (
   `user_id` int(11) NOT NULL,
   `cmpny_name` varchar(50) NOT NULL,
   `address` varchar(100) NOT NULL,
@@ -173,7 +171,7 @@ INSERT INTO `company` (`user_id`, `cmpny_name`, `address`, `industry`, `district
 -- Table structure for table `company_user`
 --
 
-CREATE TABLE IF NOT EXISTS `company_user` (
+CREATE TABLE `company_user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(30) NOT NULL,
   `password` varchar(10) NOT NULL,
@@ -194,7 +192,7 @@ INSERT INTO `company_user` (`user_id`, `email`, `password`) VALUES
 -- Table structure for table `extra_curricular`
 --
 
-CREATE TABLE IF NOT EXISTS `extra_curricular` (
+CREATE TABLE `extra_curricular` (
   `id` int(11) NOT NULL,
   `user__id` int(11) NOT NULL,
   `desc` varchar(100) NOT NULL,
@@ -210,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `extra_curricular` (
 -- Table structure for table `higher_edu`
 --
 
-CREATE TABLE IF NOT EXISTS `higher_edu` (
+CREATE TABLE `higher_edu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `university` varchar(50) NOT NULL,
@@ -220,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `higher_edu` (
   `remark` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=59 ;
 
 --
 -- Dumping data for table `higher_edu`
@@ -229,7 +227,8 @@ CREATE TABLE IF NOT EXISTS `higher_edu` (
 INSERT INTO `higher_edu` (`id`, `user_id`, `university`, `level`, `description`, `year`, `remark`) VALUES
 (55, 208, 'University of Kelaniya', 'Degree', 'BSc Management and Information Technology', 2008, 0),
 (56, 209, '', 'Select Lev', '', 0000, 0),
-(57, 210, '', 'Select Lev', '', 0000, 0);
+(57, 210, '', 'Select Lev', '', 0000, 0),
+(58, 211, '', 'Select Lev', '', 0000, 0);
 
 -- --------------------------------------------------------
 
@@ -237,7 +236,7 @@ INSERT INTO `higher_edu` (`id`, `user_id`, `university`, `level`, `description`,
 -- Table structure for table `ol`
 --
 
-CREATE TABLE IF NOT EXISTS `ol` (
+CREATE TABLE `ol` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `ol_index` varchar(7) NOT NULL,
@@ -250,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `ol` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=184 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=185 ;
 
 --
 -- Dumping data for table `ol`
@@ -269,7 +268,8 @@ INSERT INTO `ol` (`id`, `user_id`, `ol_index`, `school`, `year`, `medium`, `subj
 (180, 209, '1245215', 'Sri Dharmaloka Central College', 2002, 'Sinhala', 'Social Studies', 'A', 0),
 (181, 210, '5545545', 'Kirillawala Central College', 1997, 'Sinhala', 'English', 'A', 0),
 (182, 210, '5545545', 'Kirillawala Central College', 1997, 'Sinhala', 'Science', 'A', 0),
-(183, 210, '5545545', 'Kirillawala Central College', 1997, 'Sinhala', 'Religion', 'A', 0);
+(183, 210, '5545545', 'Kirillawala Central College', 1997, 'Sinhala', 'Religion', 'A', 0),
+(184, 211, '8823232', 'Royal College', 2004, 'Select Medium', '--Select Subject--', 'A', 0);
 
 -- --------------------------------------------------------
 
@@ -277,7 +277,7 @@ INSERT INTO `ol` (`id`, `user_id`, `ol_index`, `school`, `year`, `medium`, `subj
 -- Table structure for table `payment`
 --
 
-CREATE TABLE IF NOT EXISTS `payment` (
+CREATE TABLE `payment` (
   `user_id` int(11) NOT NULL,
   `plan` varchar(10) NOT NULL,
   `method` varchar(10) NOT NULL,
@@ -297,7 +297,7 @@ INSERT INTO `payment` (`user_id`, `plan`, `method`) VALUES
 -- Table structure for table `remark_al`
 --
 
-CREATE TABLE IF NOT EXISTS `remark_al` (
+CREATE TABLE `remark_al` (
   `user_id` int(11) NOT NULL,
   `remark` text NOT NULL,
   `rank` varchar(30) NOT NULL,
@@ -311,7 +311,7 @@ CREATE TABLE IF NOT EXISTS `remark_al` (
 -- Table structure for table `remark_higher`
 --
 
-CREATE TABLE IF NOT EXISTS `remark_higher` (
+CREATE TABLE `remark_higher` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `gpa` float NOT NULL,
@@ -326,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `remark_higher` (
 -- Table structure for table `remark_ol`
 --
 
-CREATE TABLE IF NOT EXISTS `remark_ol` (
+CREATE TABLE `remark_ol` (
   `user_id` int(11) NOT NULL,
   `remark` text NOT NULL,
   `rank` varchar(30) NOT NULL,
@@ -340,7 +340,7 @@ CREATE TABLE IF NOT EXISTS `remark_ol` (
 -- Table structure for table `sport`
 --
 
-CREATE TABLE IF NOT EXISTS `sport` (
+CREATE TABLE `sport` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `sport` varchar(20) NOT NULL,
@@ -349,7 +349,7 @@ CREATE TABLE IF NOT EXISTS `sport` (
   `year` year(4) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `sport`
@@ -358,7 +358,8 @@ CREATE TABLE IF NOT EXISTS `sport` (
 INSERT INTO `sport` (`id`, `user_id`, `sport`, `achivement`, `description`, `year`) VALUES
 (1, 208, 'Carrom', 'University Carrom team member ', '', 2011),
 (2, 209, 'Select Sport', '', '', 0000),
-(3, 210, 'Select Sport', '', '', 0000);
+(3, 210, 'Select Sport', '', '', 0000),
+(4, 211, 'Select Sport', '', '', 0000);
 
 -- --------------------------------------------------------
 
@@ -366,7 +367,7 @@ INSERT INTO `sport` (`id`, `user_id`, `sport`, `achivement`, `description`, `yea
 -- Table structure for table `vacancy`
 --
 
-CREATE TABLE IF NOT EXISTS `vacancy` (
+CREATE TABLE `vacancy` (
   `vacancy_id` int(11) NOT NULL AUTO_INCREMENT,
   `cmpny_id` int(11) NOT NULL,
   `position` varchar(50) NOT NULL,
@@ -449,7 +450,3 @@ ALTER TABLE `remark_ol`
 --
 ALTER TABLE `sport`
   ADD CONSTRAINT `sport_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `candidate_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

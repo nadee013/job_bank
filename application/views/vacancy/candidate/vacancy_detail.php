@@ -64,9 +64,11 @@
 			<input type="button" id = "reject" onclick = "location.href='<?php echo site_url(); ?>/candidateEdit/update_interview_rejection/<?php echo $vacancy["vacancy_id"]; ?>'" value = "Reject"/>
 		<?php } else if($vacancy["action"] == "rejected") {?>
 			<input type="button" id = "accept" onclick = "location.href='<?php echo site_url(); ?>/candidateEdit/update_interview_confirmation/<?php echo $vacancy["vacancy_id"]; ?>'" value = "Accept"/>
+			<div id = "notification">Your Interview Time will be notified after accepting....</div>
+
 		<?php } else { ?>
-			<input type="button" class= "btn btn-primary" id = "accept" onclick = "location.href='<?php echo site_url(); ?>/candidateEdit/update_interview_confirmation/<?php echo $vacancy["vacancy_id"]; ?>'" value = "Accept"/>
-			<input type="button" class = "btn btn-danger" id = "reject" onclick = "location.href='<?php echo site_url(); ?>/candidateEdit/update_interview_rejection/<?php echo $vacancy["vacancy_id"]; ?>'" value = "Reject"/>
+			<input type="button" id = "accept" onclick = "location.href='<?php echo site_url(); ?>/candidateEdit/update_interview_confirmation/<?php echo $vacancy["vacancy_id"]; ?>'" value = "Accept"/>
+			<input type="button" id = "reject" onclick = "location.href='<?php echo site_url(); ?>/candidateEdit/update_interview_rejection/<?php echo $vacancy["vacancy_id"]; ?>'" value = "Reject"/>
 			<div id = "notification">Your Interview Time will be notified after accepting....</div>
 
 		<?php } ?>

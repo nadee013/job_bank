@@ -10,3 +10,8 @@ application/logs/*
 
 uploads/*
 logo/*
+
+.DS_Store
+.VolumeIcon.icns
+.fseventsd
+Icon^M^M

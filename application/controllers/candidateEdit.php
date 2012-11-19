@@ -237,7 +237,6 @@ class CandidateEdit extends CI_Controller {
 
 
 		*/
-
 		redirect("candidateView/view_vacancy_details/$vacancy_id");
 	}
 
@@ -248,5 +247,12 @@ class CandidateEdit extends CI_Controller {
 		$this->model->reject_interview($vacancy_id, $user_id);
 
 		redirect("candidateView/view_vacancy_details/$vacancy_id");
+	}
+
+	public function set_searchable($searchable = NULL) {
+
+		$user_id = $this->session->userdata("id");
+		$this->model->set_searchable($user_id, ($searchable == "yes")? true: false);
+		redirect("candidateView/get_mainProfile");
 	}
 }

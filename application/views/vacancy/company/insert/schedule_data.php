@@ -1,8 +1,3 @@
-
-<div class= "validation_errors">
-	<?php echo validation_errors(); ?>
-</div>
-
 <script type="text/javascript">
 
 	$(function() {
@@ -61,12 +56,12 @@
 			<div id="time">
 				<div>
 					<div  class="control-group"><label  class= "control-label">Start</label>
-							<input type= "text" name="s_date[]" value="<?php echo date('Y-m-d') ?>" style="width:200px; margin-right:20px; margin-left:10px;"/>
-							<input type= "text" name="s_time[]" placeholder="time" style="width:200px; margin-right:20px; margin-left:10px;"/>
+							<input type= "text" name="s_date[]" value="date" style="width:200px; margin-right:20px; margin-left:10px;"/>
+							<input type= "text" name="s_time[]" value="time" style="width:200px; margin-right:20px; margin-left:10px;"/>
 					</div>
 					<div  class="control-group"><label class= "control-label">End</label>
-							<input type= "text" name="e_date[]" placeholder="date" style="width:200px; margin-right:20px; margin-left:10px;"/>
-							<input type= "text" name="e_time[]" placeholder="time" style="width:200px; margin-right:20px; margin-left:10px;"/>
+							<input type= "text" name="e_date[]" value="date" style="width:200px; margin-right:20px; margin-left:10px;"/>
+							<input type= "text" name="e_time[]" value="time" style="width:200px; margin-right:20px; margin-left:10px;"/>
 					</div>
 				</div>
 			</div>

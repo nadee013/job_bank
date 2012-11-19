@@ -36,4 +36,4 @@
 	</div>
 	</br></br>
 	<?php } ?>
-	<input type= "button" onclick='location.href="<?php echo site_url(); ?>/candidateEdit/view_basicinfo"' value= "Edit" class = "btn btn-info"/>
+	<input type= "button" onclick='location.href="<?php echo site_url(); ?>/candidateEdit/view_basicinfo"' value= "Edit"/>

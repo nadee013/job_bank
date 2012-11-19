@@ -160,8 +160,8 @@
 			</div>
 		</div>
 		<div id="data_row">
-			<button  class="btn btn-primary">Save</button>	<?php echo form_close(); ?>
-			<input type="button" name="cancel" value="Cancel" class="btn btn-danger" onclick = 'location.href="<?php echo site_url("candidateView/index"); ?>"'/>
+			<button id="btn" class="save" style="float:left;">Save</button>	<?php echo form_close(); ?>
+			<input type="button" name="cancel" value="Cancel"  style="margin-top:-38px;" id="btn" class="cancel" onclick = 'location.href="<?php echo site_url("candidateView/index"); ?>"'/>
 		</div>
 	
 		

@@ -36,8 +36,15 @@
 			<div class= "profile_heading"><img src="<?php echo base_url($profile_pic); ?>" width="100px" class="img-polaroid"/></div>
 			<div class= "profile_heading"><b><?php echo "{$pro['f_name']} {$pro['l_name']}"; ?></b></div>
 			<div class= "profile_heading" style="">
-				<button onclick ="location.href='<?php echo site_url(); ?>/candidateView/index'; return false">View Profile</button>
-				<button>CV Status</button>
+				<button class='btn btn-primary btn-small' onclick ="location.href='<?php echo site_url(); ?>/candidateView/index'; return false">View Profile</button>
+				
+				<?php if($pro['searchable'] == 0) { ?>
+					<a href='<?php echo site_url("candidateEdit/set_searchable/yes"); ?>' class='btn btn-info btn-small'>Set Searchable</a>
+			
+				<?php } else { ?>
+					<a href='<?php echo site_url("candidateEdit/set_searchable/no"); ?>' class='btn btn-danger btn-small'>Stop Searchable</a>
+				
+				<?php } ?>
 			</div>
 		</div>
 

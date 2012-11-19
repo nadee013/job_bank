@@ -112,5 +112,12 @@ class CandidateEdit_model extends CI_Model {
 		return $arr[0]['cnt'];
 	}
 	
+	public function set_searchable($user_id, $searchable) {
+
+		$this->db->where("user_id", $user_id);
+		$this->db->update("candidate_basicinfo", array(
+			"searchable" => ($searchable)? 1: 0
+		));
+	}
 	
-}
+}	

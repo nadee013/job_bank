@@ -46,6 +46,6 @@
 		<hr width="50%"/>
 
 <?php  } ?>
-			<button class="btn btn-primary" >Save</button>
-			<button class="btn btn-danger" >Cancel</button>
+			<button id="btn" class="save" style="float:left;">Save</button>
+			<button id="btn" class="cancel" style="margin-top:-38px;" >Cancel</button>
 <?php echo form_close(); ?>

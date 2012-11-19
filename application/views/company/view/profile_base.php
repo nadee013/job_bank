@@ -1,12 +1,3 @@
-<?php 
-	function setVacancyActive($current_action, $action) {
-	
-		if($current_action == $action) {
-			return "active";
-		}
-	}
-?>
-
 <div id= "content">
 <div>
 		<?php echo form_open("", array("class"=> "form-list")); 
@@ -35,41 +26,32 @@
 <div class="navbar">
 		<div class="navbar-inner">
 			<ul class="nav">
-				<li class = "filter <?php echo setVacancyActive(null, $action);?>">
-						<a href= "<?php echo site_url("company_vw_edt/view_company_profile"); ?>">All</a>
-					</li>
-				<li class = "filter <?php echo setVacancyActive('active', $action);?>">
-						<a href= "<?php echo site_url("company_vw_edt/view_company_profile/active"); ?>">Active</a>
-	 				</li>
-				<li class = "filter <?php echo setVacancyActive('de-active', $action);?>">
-						<a href= "<?php echo site_url("company_vw_edt/view_company_profile/de-active"); ?>">Closed</a>
-	 				</li>
+				<li>
+					<div id= "all" class = "filter">
+						<a href= "<?php echo site_url(); ?>">All</a>
+					</div></li>
+				<li>
+					<div id= "accepted" class = "filter" style="border-left: 1px solid;">
+						<a href= "<?php echo site_url(); ?>">Active</a>
+	 				</div></li>
+				<li>
+					<div id= "rejected" class = "filter" style="border-left: 1px solid;">
+						<a href= "<?php echo site_url(); ?>">Finished</a>
+	 				</div></li>
 			</ul>
 		</div>
 	</div>
 
-	<?php foreach ($vacancy_detail as $index => $vacancy) { ?>
-		<?php if($vacancy["action"] == "active") { ?>
-			<div class="vacancy" style = "background-color: #5599ff">
-		<?php } else if($vacancy["action"] == "de-active") { ?>
-			<div class="vacancy" style = "background-color: #ff7f2a">
-		<?php } else { ?> 
-			<div class="vacancy" style = "background-color: #">
-		<?php }
-
-			$time_slots_converted = json_decode($vacancy["time_slots"], true);
-			$st_date = $time_slots_converted[0]["st"]; ?>
-			
-				<a href= "<?php echo site_url();?>/vacancy/vacancy_data_load/<?php echo $vacancy["vacancy_id"]; ?>">
-					<div class= "vacancy_data"><?php echo $index + 1; ?></div>
-					<div class = "vacancy_data"><?php echo $vacancy["position"]; ?></div>
-					<?php if($vacancy["action"] == "active") { ?>
-						<div class ="vacancy_data" ><?php echo date("y-m-d", $st_date); ?></div>
-					<?php } else if($vacancy["action"] == "de-active") {} ?>
-				</a>
-			
-			</div>
-	<?php } ?>
-	
+<?php foreach ($vacancy_detail as $index => $vacancy) { ?>
+	<div class="vacancy" style = "background-color: #002EB8">
+		
+		<a href= "<?php echo site_url();?>/vacancy/vacancy_data_load/<?php echo $vacancy["vacancy_id"]; ?>">
+			<div class = "vacancy_data"><?php echo $index+1; ?></div>
+			<div class = "vacancy_data"><?php echo $vacancy["position"]; ?></div>
+			<div class ="vacancy_data" >Date</div>
+		</a>
+		
+	</div>
+<?php } ?>
 
 

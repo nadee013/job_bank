@@ -23,9 +23,9 @@ class Vacancy extends CI_Controller {
 	public function get_schedule_data() {
 
 		$this->load->view("header");
+		$this->load->view("logout");
 
 		$this->load->view("vacancy/company/insert/schedule_data");
-		// mokak hari
 		$this->load->view("footer");
 	
 	}
@@ -33,31 +33,19 @@ class Vacancy extends CI_Controller {
 
 	public function insert_schedule_data() {
 
-		$this->load->library("form_validation");
+		$cmpny_id =  $this->session->userdata('id');
+		$position = $this->input->post("position");
+		$job_desc = $this->input->post("job_desc");
+		$msg = $this->input->post("msg");
+		$interview_due = $this->input->post("due");
 
-		$this->form_validation->set_rules('position', 'Position', 'required');
-		$this->form_validation->set_rules('due', 'Duration', 'required');
-		$this->form_validation->set_rules('msg', 'Message to be sent to the candidate by email', 'required');
+		//$this->set_session($position);
+
+		$time_slots = $this->time_slot_convert_json();
 		
-		if($this->form_validation->run()) { 
-
-			$cmpny_id =  $this->session->userdata('id');
-			$position = $this->input->post("position");
-			$job_desc = $this->input->post("job_desc");
-			$msg = $this->input->post("msg");
-			$interview_due = $this->input->post("due");
-
-			//$this->set_session($position);
-
-			$time_slots = $this->time_slot_convert_json();
-			
-			$vacancy_id = $this->vacancy->insert_schedule_data($cmpny_id, $position, $job_desc, $msg, $interview_due,$time_slots);
-		
-			redirect("vacancy/get_vacancy_search/$vacancy_id");
-		} else {
-
-			$this->get_schedule_data();
-		}
+		$vacancy_id = $this->vacancy->insert_schedule_data($cmpny_id, $position, $job_desc, $msg, $interview_due,$time_slots);
+	
+		redirect("vacancy/get_vacancy_search/$vacancy_id");
 
 	}
 
@@ -367,6 +355,7 @@ class Vacancy extends CI_Controller {
 		} else {
 
 			$this->load->view("header");
+			$this->load->view("logout");
 
 			$this->load->view("vacancy/company/view/download_candidate_null");
 			$this->load->view("footer");
@@ -385,6 +374,7 @@ class Vacancy extends CI_Controller {
 	public function vacancy_data_load($vacancy_id, $action = NULL) {
 
 		$this->load->view("header");
+		$this->load->view("logout");
 
 		//$vacancy_id = $this->session->userdata('vacancy');
 

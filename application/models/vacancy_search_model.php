@@ -64,7 +64,7 @@ class Vacancy_search_model extends CI_Model {
 
 		if($where) { 
 			$vacancy_existing_removal = " c.user_id NOT IN (SELECT candidate_id FROM candidates_for_vacancy WHERE vacancy_id = $vacancy_id)";
-			$sql .= " WHERE $vacancy_existing_removal AND $where";
+			$sql .= " WHERE c.searchable=1 AND $vacancy_existing_removal AND $where";
 			$result = $this->db->query($sql)->result_array();
 			return $result;
 		} else {
@@ -234,9 +234,9 @@ class Vacancy_search_model extends CI_Model {
 
 	public function get_vacancy_name($vacancy_id) {
 
-		$sql = "SELECT position, action FROM vacancy WHERE vacancy_id = $vacancy_id";
+		$sql = "SELECT position FROM vacancy WHERE vacancy_id = $vacancy_id";
 		$vacancy_name = $this->db->query($sql)->result_array();
-		return $vacancy_name;
+		return $vacancy_name[0]["position"];
 		
 	}
 

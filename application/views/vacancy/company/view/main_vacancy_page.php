@@ -2,7 +2,7 @@
 	<div>
 		<?php $vacancy_id = $this->uri->rsegment(3) ?>
 			<?php 
-				$post = $position[0]["position"];
+				$post = $position;
 
 				if($post == "") {
 					$post = "(Position not defined)";
@@ -51,11 +51,9 @@
 	
 	
 	<div>
-		<input type="button" class = "btn btn-primary"  onclick= 'location.href="<?php echo site_url(); ?>/vacancy/download_cvs_for_vacancy/<?php echo $vacancy_id; ?>"' class="next" value="Download CVs'" />
-	<?php if($position[0]["action"] == "active") { ?>
-		<input type="button" class = "btn btn-warning" value="Add more Candidates" 
+		<input type="button" id= "btn" style="float:left; width:120px; margin-left: 300px;" onclick= 'location.href="<?php echo site_url(); ?>/vacancy/download_cvs_for_vacancy/<?php echo $vacancy_id; ?>"' class="next" value="Download CVs'" />
+		<input type="button" id= "btn" style="clear: both; width:200px;" class="remark" value="Add more Candidates" 
 			onclick = 'location.href="<?php echo site_url(); ?>/vacancy/get_vacancy_search/<?php echo $vacancy_id; ?>"' />
-	<?php } else if ($position[0]["action"] == "de-active") { }?>
 	</div>
 
 			

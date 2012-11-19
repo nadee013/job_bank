@@ -40,7 +40,7 @@ class CandidateView extends CI_Controller {
 		$vacancies = $this->model->get_vacancies($user, $action);
 		
 		$row = array("profile" => $profile, "vacancies" => $vacancies, "action" => $action);
-		// print_r($row);
+
 		if($row['profile']) {
 
 			$this->load->view("candidate/view/profile_base", $row);
@@ -144,6 +144,5 @@ class CandidateView extends CI_Controller {
 		
 		$this->load->view("footer");
 	}
-
 	
 }

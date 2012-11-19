@@ -41,7 +41,7 @@
 		</div>
 				
 		
-		<input type= "button" class= "btn btn-info" onclick='location.href="<?php echo site_url("candidateEdit/view_eduquali_ol"); ?>"' value= "Edit"/>
+		<input type= "button" onclick='location.href="<?php echo site_url("candidateEdit/view_eduquali_ol"); ?>"' value= "Edit"/>
 	
 	
 
