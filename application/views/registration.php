@@ -34,7 +34,8 @@
 	    </div>
 	  </div>
 	  <div>
-	  	<button>Register</button>
+	  	<button class= "btn btn-primary" type="submit">Register</button>
+	  	<button class= "btn btn-danger" type= "reset">Cancel</button>
 	  </div>
 
 	

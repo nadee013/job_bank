@@ -32,8 +32,8 @@
 	
 
 	
-		<button >Log in</button>
-		<input type = "reset"  value = "Cancel" id="btn" />
+		<button class = "btn btn-primary">Log in</button>
+		<input type = "reset"  value = "Cancel" class ="btn btn-danger" />
 	
 
 <?php echo form_close(); ?>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2012 at 11:14 AM
+-- Generation Time: Nov 26, 2012 at 11:02 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -65,7 +65,7 @@ CREATE TABLE `candidates_for_vacancy` (
   KEY `vacancy_id` (`vacancy_id`),
   KEY `cmpny_id` (`cmpny_id`),
   KEY `candidate_id` (`candidate_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `candidates_for_vacancy`
@@ -74,7 +74,8 @@ CREATE TABLE `candidates_for_vacancy` (
 INSERT INTO `candidates_for_vacancy` (`id`, `vacancy_id`, `cmpny_id`, `candidate_id`, `action`, `interview_time`) VALUES
 (1, 1, 1, 208, 'accepted', 1351843200),
 (2, 1, 1, 209, 'accepted', 1351844100),
-(3, 2, 1, 208, 'pending', 0);
+(3, 2, 1, 208, 'pending', 0),
+(5, 8, 1, 208, 'pending', 0);
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,7 @@ CREATE TABLE `candidate_basicinfo` (
   `searchable` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `nic_no` (`nic_no`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=212 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=213 ;
 
 --
 -- Dumping data for table `candidate_basicinfo`
@@ -112,7 +113,8 @@ INSERT INTO `candidate_basicinfo` (`user_id`, `title`, `pic`, `f_name`, `l_name`
 (208, 'Miss', '', 'Nadee', 'Anuththara', 577756800, 'female', 'single', '246,Wedamulla,Kelaniya', 'Gampaha', 'Sri Lanka', 'Sri Lankan', '0771245745', '0112451241', '886414235V', '', 1),
 (209, 'Miss', 'uploads/c98c937437d1576a5e7cb3d2fed76e31.jpg', 'Chami', 'Uththara', 508377600, 'female', 'single', '246,Wedamulla,Kelaniya', 'Gampaha', 'Sri Lanka', 'Sri Lankan', '0715622512', '0112454521', '154256123v', '', 1),
 (210, 'Mr.', '', 'Roshan', 'Malcolm', 318211200, 'male', 'single', '109,Suriyapaluwa,Kadawatha', 'Colombo', 'Sri Lanka', 'Sri Lankan', '0774522155', '0112929256', '124552122V', '', 1),
-(211, 'Mr.', 'uploads/profile_pic.jpg', 'Arunoda', 'Susiripala', 592959600, 'male', 'single', ', , ', 'Select District', 'Sri Lanka', 'Sri Lankan', 'mobile', 'home', '88290083v', '', 1);
+(211, 'Mr.', 'uploads/profile_pic.jpg', 'Arunoda', 'Susiripala', 592959600, 'male', 'single', ', , ', 'Select District', 'Sri Lanka', 'Sri Lankan', 'mobile', 'home', '88290083v', '', 1),
+(212, 'Mr.', 'uploads/profile_pic.jpg', 'name', 'last', 0, 'male', 'single', ', , ', 'Select District', 'Sri Lanka', 'Sri Lankan', 'mobile', 'home', '882900-37v', '', 1);
 
 -- --------------------------------------------------------
 
@@ -126,7 +128,7 @@ CREATE TABLE `candidate_user` (
   `password` varchar(10) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=212 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=213 ;
 
 --
 -- Dumping data for table `candidate_user`
@@ -136,7 +138,8 @@ INSERT INTO `candidate_user` (`user_id`, `email`, `password`) VALUES
 (208, 'nadee@gmail.com', 'n'),
 (209, 'chami@gmail.com', 'c'),
 (210, 'roshan@gmail.com', 'r'),
-(211, 'arunoda@gmail.com', 'a');
+(211, 'arunoda@gmail.com', 'a'),
+(212, 'arunoda@hh.com', 'a');
 
 -- --------------------------------------------------------
 
@@ -375,17 +378,24 @@ CREATE TABLE `vacancy` (
   `msg` varchar(200) NOT NULL,
   `time_slots` varchar(200) NOT NULL,
   `interview_due` int(4) NOT NULL,
+  `action` varchar(20) NOT NULL DEFAULT 'active',
   PRIMARY KEY (`vacancy_id`),
   KEY `vacancy_id` (`vacancy_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `vacancy`
 --
 
-INSERT INTO `vacancy` (`vacancy_id`, `cmpny_id`, `position`, `job_desc`, `msg`, `time_slots`, `interview_due`) VALUES
-(1, 1, 'CEO ', 'Handle Managerial functions of the company.', 'Should be fluent in English.', '[{"st":1351843200,"et":1351832400}]', 15),
-(2, 1, 'HR Manager', '', '', '[{"st":1351843200,"et":1351832400}]', 0);
+INSERT INTO `vacancy` (`vacancy_id`, `cmpny_id`, `position`, `job_desc`, `msg`, `time_slots`, `interview_due`, `action`) VALUES
+(1, 1, 'CEO ', 'Handle Managerial functions of the company.', 'Should be fluent in English.', '[{"st":1351843200,"et":1351832400}]', 15, 'active'),
+(2, 1, 'HR Manager', '', '', '[{"st":1351843200,"et":1351832400}]', 0, 'active'),
+(3, 1, 'hh', 'hh', 'sds', '[{"st":1351736100,"et":1352945700}]', 10, 'active'),
+(4, 1, 'hh', 'hh', 'sds', '[{"st":1351735200,"et":1352944800}]', 10, 'active'),
+(5, 0, 'hh', 'hh', 'sds', '[{"st":1351735200,"et":1352944800}]', 10, 'active'),
+(6, 1, 'ff', 'ff', 'dd', '[{"st":1353884400,"et":1353966698}]', 10, 'active'),
+(7, 1, 'ff', 'ff', 'dd', '[{"st":1353884400,"et":1353966742}]', 10, 'active'),
+(8, 1, 'ff', 'ff', 'dd', '[{"st":1353884400,"et":1353967022}]', 10, 'active');
 
 --
 -- Constraints for dumped tables

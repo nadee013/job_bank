@@ -1,4 +1,3 @@
-
 <?php
 
 class Vacancy_search_model extends CI_Model {
@@ -234,9 +233,9 @@ class Vacancy_search_model extends CI_Model {
 
 	public function get_vacancy_name($vacancy_id) {
 
-		$sql = "SELECT position FROM vacancy WHERE vacancy_id = $vacancy_id";
+		$sql = "SELECT position, action FROM vacancy WHERE vacancy_id = $vacancy_id";
 		$vacancy_name = $this->db->query($sql)->result_array();
-		return $vacancy_name[0]["position"];
+		return $vacancy_name;
 		
 	}
 

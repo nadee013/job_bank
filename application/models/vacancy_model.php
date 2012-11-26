@@ -23,17 +23,20 @@ class Vacancy_Model extends CI_Model {
 	}
 
 
-	public function get_vacancies($cmpny_id) {
+	public function get_vacancies($cmpny_id, $action) {
 		
-		$sql = "SELECT vacancy_id, position FROM vacancy WHERE cmpny_id = $cmpny_id";
+		$sql = "SELECT * FROM vacancy WHERE cmpny_id = $cmpny_id ";
+		if($action) {
+			$sql .= "AND action = '$action'";
+
+		}
 		return $this->db->query($sql)->result_array();
 		
 	}
 
-
 	public function get_vacancy_data_load($vacancy_id, $action) {
 		
-		$sql = "SELECT candidate_id FROM candidates_for_vacancy WHERE vacancy_id = $vacancy_id ";
+		$sql = "SELECT candidate_id, action FROM candidates_for_vacancy WHERE vacancy_id = $vacancy_id ";
 		if($action) {
 			$sql .= "AND action = '$action'";
 		}
@@ -41,14 +44,14 @@ class Vacancy_Model extends CI_Model {
 	}
 
 
-	public function get_candidate_detail($candidate_ids) {
+	public function get_candidate_detail($vacancy_id, $candidate_ids) {
 
 		
 		$list_of_candidate_ids = implode(",", $candidate_ids);
 		//echo "$list_of_candidate_ids";
 
-		$sql = "SELECT f_name, l_name, user_id FROM candidate_basicinfo WHERE user_id IN ($list_of_candidate_ids)"; 
-
+		$sql = "SELECT DISTINCT c.f_name, c.l_name, c.user_id, v.action FROM candidate_basicinfo c, candidates_for_vacancy v WHERE c.user_id IN ($list_of_candidate_ids) AND vacancy_id = $vacancy_id"; 
+		// echo $sql;
 		return $this->db->query($sql)->result_array();
 
 		

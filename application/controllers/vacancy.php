@@ -1,6 +1,4 @@
- <?php 
-
-class Vacancy extends CI_Controller {
+<?php class Vacancy extends CI_Controller {
 
 
 	public function __construct() {
@@ -33,22 +31,33 @@ class Vacancy extends CI_Controller {
 
 	public function insert_schedule_data() {
 
-		$cmpny_id =  $this->session->userdata('id');
-		$position = $this->input->post("position");
-		$job_desc = $this->input->post("job_desc");
-		$msg = $this->input->post("msg");
-		$interview_due = $this->input->post("due");
+		$this->load->library("form_validation");
 
-		//$this->set_session($position);
-
-		$time_slots = $this->time_slot_convert_json();
+		$this->form_validation->set_rules('position', 'Position', 'required');
+		$this->form_validation->set_rules('due', 'Duration', 'required');
+		$this->form_validation->set_rules('msg', 'Message to be sent to the candidate by email', 'required');
 		
-		$vacancy_id = $this->vacancy->insert_schedule_data($cmpny_id, $position, $job_desc, $msg, $interview_due,$time_slots);
-	
-		redirect("vacancy/get_vacancy_search/$vacancy_id");
+		if($this->form_validation->run()) { 
+
+			$cmpny_id =  $this->session->userdata('id');
+			$position = $this->input->post("position");
+			$job_desc = $this->input->post("job_desc");
+			$msg = $this->input->post("msg");
+			$interview_due = $this->input->post("due");
+
+			// //$this->set_session($position);
+
+			$time_slots = $this->time_slot_convert_json();
+			
+			$vacancy_id = $this->vacancy->insert_schedule_data($cmpny_id, $position, $job_desc, $msg, $interview_due,$time_slots);
+		
+			redirect("vacancy/get_vacancy_search/$vacancy_id");
+		} else {
+
+			$this->get_schedule_data();
+		}
 
 	}
-
 
 	public function time_slot_convert_json() {
 		
@@ -164,7 +173,7 @@ class Vacancy extends CI_Controller {
 		$vacancy_name = $this->search->get_vacancy_name($vacancy_id);
 
 		$row = array("users" => $users, "position" => $vacancy_name);
-		//print_r($row);
+		
 		if($row['users']) {
 		 
 			$this->load->view("vacancy/company/view/candidate_list.php", $row);
@@ -374,14 +383,11 @@ class Vacancy extends CI_Controller {
 	public function vacancy_data_load($vacancy_id, $action = NULL) {
 
 		$this->load->view("header");
-		$this->load->view("logout");
-
-		//$vacancy_id = $this->session->userdata('vacancy');
 
 		$vacancy_data = $this->vacancy->get_vacancy_data_load($vacancy_id, $action);
 		$vacancy_name = $this->search->get_vacancy_name($vacancy_id);
 
-		//print_r($vacancy_data);
+		// print_r($vacancy_data);
 		// echo"<br/>";
 		if($vacancy_data) {
 
@@ -393,10 +399,10 @@ class Vacancy extends CI_Controller {
 
 			}
 
-			$candidates = $this->vacancy->get_candidate_detail($can);
+			$candidates = $this->vacancy->get_candidate_detail($vacancy_id, $can);
+			// print_r($candidates);
 
 			$candidate_list = array("candidates" => $candidates, "position" => $vacancy_name);
-			//print_r($candidate_list);
 
 			$this->load->view("vacancy/company/view/main_vacancy_page", $candidate_list);
 
@@ -406,9 +412,9 @@ class Vacancy extends CI_Controller {
 				// database eke kawrut nattam
 				redirect("vacancy/get_vacancy_search/$vacancy_id");
 			} else {
-				//
 
 				$candidate_list = array("candidates" => array(), "position" => $vacancy_name);
+				//print_r($candidate_list);
 				$this->load->view("vacancy/company/view/main_vacancy_page", $candidate_list);
 
 			}

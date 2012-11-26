@@ -76,8 +76,8 @@
 		</div>
 	</div>
 	<div class="control-group">
-			<button class="btn" class="save" style="float:left;">Save</button>	<?php echo form_close(); ?>
-			<input type="button" name="cancel" value="Cancel"  style="margin-top:-38px;" id="btn"  onclick = 'location.href="<?php echo site_url("company_vw_edt/view_company_profile"); ?>"'/>
+			<button class="btn btn-primary">Save</button>	<?php echo form_close(); ?>
+			<input type="button" name="cancel" class= "btn btn-danger " value="Cancel" onclick = 'location.href="<?php echo site_url("company_vw_edt/view_company_profile"); ?>"'/>
 	</div>
 	<?php } ?>
 

@@ -6,7 +6,7 @@
 	<form name="can_list" method = "post" action= "<?php echo site_url();?>/vacancy/invite_or_download/<?php echo $vacancy_id;?>"> 
 		<div>
 			<?php 
-				$post = $position;
+				$post = $position[0]['position'];
 
 				if($post == "") {
 					$post = "(Position not defined)";

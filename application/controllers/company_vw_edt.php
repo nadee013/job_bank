@@ -24,16 +24,17 @@ class Company_vw_edt extends CI_Controller {
 			
 	}
 
-	public function view_company_profile() {
+	public function view_company_profile($action = NULL) {
 
 		$id = $this->session->userdata('id');
 		$profile = $this->model->view_profile($id);
 
 		$this->load->model("vacancy_model", "vacancy");
 
-		$vacancies = $this->vacancy->get_vacancies($id);
+		$vacancies = $this->vacancy->get_vacancies($id, $action);
 
-		$row = array("profile" => $profile, "vacancy_detail" => $vacancies);
+		$row = array("profile" => $profile, "vacancy_detail" => $vacancies, "action" => $action);
+		// print_r($row);
 
 		if($row['profile']) {
 

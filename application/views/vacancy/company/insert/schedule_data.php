@@ -1,3 +1,7 @@
+<div class= "validation_errors">
+	<?php echo validation_errors(); ?>
+</div>
+
 <script type="text/javascript">
 
 	$(function() {
@@ -5,17 +9,26 @@
 		$("#add").click(function() {
 
 			//alert("hi");
-			var div_time_slot = $("#time_slot").html();
+			var div_time_slot = $($("#time_slot").html());
 
-			//div_time_slot = div_time_slot.replace(/divx/g, "div").replace(/labelx/g, "label");
-			console.log(div_time_slot);
-			//alert(div_jquery);
-
+			applyDateTimePicker(div_time_slot);
 
 			$("#time").append($(div_time_slot));
 		});
 
 	});
+
+
+	//set date picker
+	$(function() {
+		applyDateTimePicker($('body'));
+	})
+
+
+	function applyDateTimePicker(el) {
+		$('.my-date', el).datepicker({format: "yyyy-mm-dd"});
+		$('.timepicker-default', el).timepicker();
+	}
 
 
 </script>
@@ -38,7 +51,7 @@
 	<div class= "control-group">
 		<label class="control-label" >Interview Duration</label>
 		<div class="controls">
-			<input name= "due" type="text" />
+			<input name= "due" type="text" />min
 		</div>
 	</div>
 	<div class= "control-group">
@@ -56,34 +69,55 @@
 			<div id="time">
 				<div>
 					<div  class="control-group"><label  class= "control-label">Start</label>
-							<input type= "text" name="s_date[]" value="date" style="width:200px; margin-right:20px; margin-left:10px;"/>
-							<input type= "text" name="s_time[]" value="time" style="width:200px; margin-right:20px; margin-left:10px;"/>
+							<input id='start-date' class='my-date' type= "text" name="s_date[]" value="<?php echo date('Y-m-d') ?>" style="width:200px; margin-right:20px; margin-left:10px;"/>
+							<div class="input-append bootstrap-timepicker-component">
+							    <input name="s_time[]" plaveholder="time" name="s_time" type="text" class="timepicker-default input-small">
+							    <span class="add-on">
+							        <i class="icon-time"></i>
+							    </span>
+							</div>
 					</div>
 					<div  class="control-group"><label class= "control-label">End</label>
-							<input type= "text" name="e_date[]" value="date" style="width:200px; margin-right:20px; margin-left:10px;"/>
-							<input type= "text" name="e_time[]" value="time" style="width:200px; margin-right:20px; margin-left:10px;"/>
+							<input id='end-date' class='my-date' type= "text" name="e_date[]" plaveholder="date" style="width:200px; margin-right:20px; margin-left:10px;"/>
+							<div class="input-append bootstrap-timepicker-component">
+							    <input name="e_time[]" plaveholder="time" name="s_time" type="text" class="timepicker-default input-small">
+							    <span class="add-on">
+							        <i class="icon-time"></i>
+							    </span>
+							</div>
 					</div>
 				</div>
 			</div>
 			
 			
-			<input type="button" id="add" name="add" value="Add new Time Slot" style="float:right"/>
+			<input type="button" class= "btn" id="add" name="add" value="Add new Time Slot" style="float:right"/>
 		</fieldset>
 	</div>
 
-	<input type="button" id= "btn" style="float:left; margin-right:500px" class= "back" value="<< Back" onclick = "history.back();" />
-	<button id="btn"  style="margin-top:-40px;" class="next">Submit</button>
+	<input type="button" class= "btn btn-inverse" value="<< Back" onclick = "history.back();" />
+	<button class="btn btn-primary">Submit</button>
 </form>
 
 
-	<div id="time_slot" style="display:none">
-		<hr/>
-		<div  class="control-group"><label class= "control-label">Start</label>
-				<input type= "text" name="s_date" value="date" style="width:200px; margin-right:20px; margin-left:10px;"/>
-				<input type= "text" name="s_time" value="time" style="width:200px; margin-right:20px; margin-left:10px;"/>
-		</div>
-		<div  class="control-group"><label class= "control-label">End</label>
-				<input type= "text" name="e_date" value="date" style="width:200px; margin-right:20px; margin-left:10px;"/>
-				<input type= "text" name="e_time" value="time" style="width:200px; margin-right:20px; margin-left:10px;"/>
+	<div id="time_slot" class='hide'>
+		<div>
+			<div  class="control-group"><label  class= "control-label">Start</label>
+					<input class='my-date' type= "text" name="s_date[]" value="<?php echo date('Y-m-d') ?>" style="width:200px; margin-right:20px; margin-left:10px;"/>
+					<div class="input-append bootstrap-timepicker-component">
+					    <input name="s_time[]" plaveholder="time" name="s_time" type="text" class="timepicker-default input-small">
+					    <span class="add-on">
+					        <i class="icon-time"></i>
+					    </span>
+					</div>
+			</div>
+			<div  class="control-group"><label class= "control-label">End</label>
+					<input class='my-date' type= "text" name="e_date[]" plaveholder="date" style="width:200px; margin-right:20px; margin-left:10px;"/>
+					<div class="input-append bootstrap-timepicker-component">
+					    <input name="e_time[]" plaveholder="time" name="s_time" type="text" class="timepicker-default input-small">
+					    <span class="add-on">
+					        <i class="icon-time"></i>
+					    </span>
+					</div>
+			</div>
 		</div>
 	</div>
