@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 26, 2012 at 11:02 PM
+-- Generation Time: Nov 27, 2012 at 03:05 PM
 -- Server version: 5.5.25
 -- PHP Version: 5.4.4
 
@@ -65,17 +65,19 @@ CREATE TABLE `candidates_for_vacancy` (
   KEY `vacancy_id` (`vacancy_id`),
   KEY `cmpny_id` (`cmpny_id`),
   KEY `candidate_id` (`candidate_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `candidates_for_vacancy`
 --
 
 INSERT INTO `candidates_for_vacancy` (`id`, `vacancy_id`, `cmpny_id`, `candidate_id`, `action`, `interview_time`) VALUES
-(1, 1, 1, 208, 'accepted', 1351843200),
-(2, 1, 1, 209, 'accepted', 1351844100),
-(3, 2, 1, 208, 'pending', 0),
-(5, 8, 1, 208, 'pending', 0);
+(1, 1, 1, 208, 'rejected', 1351843200),
+(2, 1, 1, 209, 'rejected', 1351844100),
+(3, 2, 1, 208, 'rejected', 1351843200),
+(5, 8, 1, 208, 'pending', 0),
+(6, 3, 1, 209, 'pending', 0),
+(7, 3, 1, 208, 'pending', 0);
 
 -- --------------------------------------------------------
 
@@ -388,8 +390,8 @@ CREATE TABLE `vacancy` (
 --
 
 INSERT INTO `vacancy` (`vacancy_id`, `cmpny_id`, `position`, `job_desc`, `msg`, `time_slots`, `interview_due`, `action`) VALUES
-(1, 1, 'CEO ', 'Handle Managerial functions of the company.', 'Should be fluent in English.', '[{"st":1351843200,"et":1351832400}]', 15, 'active'),
-(2, 1, 'HR Manager', '', '', '[{"st":1351843200,"et":1351832400}]', 0, 'active'),
+(1, 1, 'CEO ', 'Handle Managerial functions of the company.', 'Should be fluent in English.', '[{"st":1351843200,"et":1351832400}]', 15, 'de-active'),
+(2, 1, 'HR Manager', '', '', '[{"st":1351843200,"et":1351832400}]', 0, 'de-active'),
 (3, 1, 'hh', 'hh', 'sds', '[{"st":1351736100,"et":1352945700}]', 10, 'active'),
 (4, 1, 'hh', 'hh', 'sds', '[{"st":1351735200,"et":1352944800}]', 10, 'active'),
 (5, 0, 'hh', 'hh', 'sds', '[{"st":1351735200,"et":1352944800}]', 10, 'active'),

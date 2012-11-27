@@ -115,4 +115,10 @@ class Company_vw_edt extends CI_Controller {
 		$this->load->view("footer");
 		
 	}
+
+	public function deactivate_vacancy($company, $vacancy) {
+
+		$this->model->deactivate_vacancy($company, $vacancy);
+		redirect(site_url('company_vw_edt/view_company_profile'));
+	}
 }

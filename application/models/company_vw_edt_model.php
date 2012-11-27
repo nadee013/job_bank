@@ -30,5 +30,22 @@ class Company_vw_edt_model extends CI_Model {
 		$sql = "SELECT * FROM company WHERE user_id = $company_id";
 		return $this->db->query($sql)->result_array();
 	}
+
+	public function deactivate_vacancy($company, $vacancy) {
+
+		//update vacacy for action state
+		$this->db->where('vacancy_id', $vacancy);
+		$this->db->where('cmpny_id', $company);
+
+		$this->db->update('vacancy', array('action' => 'de-active'));
+
+		//update all the cadidates for this vacancy with state pending to rejected.
+		$this->db->where('vacancy_id', $vacancy);
+		$this->db->where('cmpny_id', $company);
+		$this->db->where('action', 'pending');
+
+		$this->db->update('candidates_for_vacancy', array('action' => 'rejected'));
+
+	}
 	
 }

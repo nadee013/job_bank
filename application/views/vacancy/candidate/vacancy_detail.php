@@ -28,7 +28,7 @@
 		<b>Address  : </b>
 		<?php echo $vacancy["address"]; ?>
 	</div>
-	<?php if($vacancy["action"] == "accepted") { ?>
+	<?php if($vacancy["c_action"] == "accepted") { ?>
 	<div >
 		<b>Date/ Time  : </b>
 		<?php echo date("F j, Y, g:i a", $vacancy["interview_time"]); ?>
@@ -60,11 +60,11 @@
 		</div>
 
 		<div>
-		<?php if($vacancy["action"] == "accepted") { ?>
+		<?php if($vacancy["c_action"] == "accepted") { ?>
 			<input type="button" id = "reject" onclick = "location.href='<?php echo site_url(); ?>/candidateEdit/update_interview_rejection/<?php echo $vacancy["vacancy_id"]; ?>'" value = "Reject"/>
-		<?php } else if($vacancy["action"] == "rejected") {?>
-			<input type="button" id = "accept" onclick = "location.href='<?php echo site_url(); ?>/candidateEdit/update_interview_confirmation/<?php echo $vacancy["vacancy_id"]; ?>'" value = "Accept"/>
-			<div id = "notification">Your Interview Time will be notified after accepting....</div>
+		<?php } else if($vacancy["c_action"] == "rejected") {?>
+			<!-- <input type="button" id = "accept" onclick = "location.href='<?php echo site_url(); ?>/candidateEdit/update_interview_confirmation/<?php echo $vacancy["vacancy_id"]; ?>'" value = "Accept"/> -->
+			<!-- <div id = "notification">Your Interview Time will be notified after accepting....</div> -->
 
 		<?php } else { ?>
 			<input type="button" id = "accept" onclick = "location.href='<?php echo site_url(); ?>/candidateEdit/update_interview_confirmation/<?php echo $vacancy["vacancy_id"]; ?>'" value = "Accept"/>

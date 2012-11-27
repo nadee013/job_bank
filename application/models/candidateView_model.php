@@ -51,7 +51,7 @@ class CandidateView_model extends CI_Model {
 
 	public function get_company_vacancy_details($vacancy_id, $candidate_id) {
 
-		$sql = "SELECT c.*, com.*, v.* FROM candidates_for_vacancy c, company com, vacancy v WHERE c.vacancy_id = $vacancy_id AND c.candidate_id = $candidate_id AND com.user_id = c.cmpny_id ANd v.vacancy_id = $vacancy_id";
+		$sql = "SELECT c.action c_action, c.*, com.*, v.* FROM candidates_for_vacancy c, company com, vacancy v WHERE c.vacancy_id = $vacancy_id AND c.candidate_id = $candidate_id AND com.user_id = c.cmpny_id ANd v.vacancy_id = $vacancy_id";
 		return $this->db->query($sql)->result_array();
 		
 	}

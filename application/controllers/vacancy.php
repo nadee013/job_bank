@@ -399,7 +399,7 @@
 
 			}
 
-			$candidates = $this->vacancy->get_candidate_detail($vacancy_id, $can);
+			$candidates = $this->vacancy->get_candidate_detail_with_action($vacancy_id, $action);
 			// print_r($candidates);
 
 			$candidate_list = array("candidates" => $candidates, "position" => $vacancy_name);

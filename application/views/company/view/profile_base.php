@@ -7,7 +7,6 @@
 	}
 ?>
 
-
 <div id= "content">
 <div>
 		<?php echo form_open("", array("class"=> "form-list")); 
@@ -66,10 +65,31 @@
 					<div class = "vacancy_data"><?php echo $vacancy["position"]; ?></div>
 					<?php if($vacancy["action"] == "active") { ?>
 						<div class ="vacancy_data" ><?php echo date("y-m-d", $st_date); ?></div>
+						<div class= "vacancy_data">
+							<button 
+								class='btn btn-danger btn-small deactivate' 
+								data-company=<?php echo $vacancy['cmpny_id']; ?>
+								data-vacancy=<?php echo $vacancy['vacancy_id']; ?> 
+							>De-Activate</button></div>
 					<?php } else if($vacancy["action"] == "de-active") {} ?>
+
 				</a>
 			
 			</div>
 	<?php } ?>
 
+<script type="text/javascript">
+	
+	$('.deactivate').on('click', function(e) {
 
+		var company = $(this).attr('data-company');
+		var vacancy = $(this).attr('data-vacancy');
+		var confirmed = confirm("Do you wan't to deactivate the vacancy?\nAfter deactivated there is not way to activate it back!");
+		
+		if(confirmed) {
+			var url = '<?php echo site_url("company_vw_edt/deactivate_vacancy"); ?>' + '/' + company + '/' + vacancy;
+			location.href = url;
+		}
+		e.preventDefault();
+	});
+</script>

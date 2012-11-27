@@ -57,6 +57,16 @@ class Vacancy_Model extends CI_Model {
 		
 	}
 
+	public function get_candidate_detail_with_action($vacancy_id, $action) {
+
+		$sql = "SELECT cfv.*, c.* FROM candidate_basicinfo c, candidates_for_vacancy cfv WHERE c.user_id = cfv.candidate_id AND cfv.vacancy_id = ? ";
+		if($action) {
+			$sql.= "AND action = ?";
+		}
+
+		return $this->db->query($sql, array($vacancy_id, $action))->result_array();
+	}
+
 
 	public function get_all_candidates_for_vacancy($vacancy_id) {
 		/* 
